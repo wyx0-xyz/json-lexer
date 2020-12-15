@@ -30,7 +30,7 @@ pub fn tokenize(code: &str) -> Vec<Token> {
                          current_token.push(c);
                          continue;
                     } else {
-                         tokens.push(Token::Number(current_token.clone().parse().unwrap()));
+                         tokens.push(Token::Number(current_token.parse().unwrap()));
                          current_token.clear();
                          state = State::None;
                          continue;
