@@ -1,11 +1,25 @@
 mod lexer;
 mod tokens;
 
-use std::fs::read_to_string;
-
 fn main() {
-    let code = read_to_string("example.json").expect("Cannot read file");
-    let tokens = lexer::tokenize(&code);
+    let examples_code: String = String::from(
+        r#"
+        {
+            "abc": 15,
+            "foo": {
+                "def": [
+                    12,
+                    true,
+                    null
+                ]
+            }
+       }
+    "#,
+    );
+    let lex = lexer::Lexer {
+        code: examples_code,
+    };
+    let tokens = lex.tokenize();
 
     println!("{:?}", tokens);
 }
