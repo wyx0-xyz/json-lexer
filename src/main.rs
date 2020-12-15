@@ -2,7 +2,7 @@ mod lexer;
 mod tokens;
 
 fn main() {
-    let examples_code: String = String::from(
+    let example_code: String = String::from(
         r#"
         {
             "abc": 15,
@@ -17,7 +17,7 @@ fn main() {
     "#,
     );
     let lex = lexer::Lexer {
-        code: examples_code,
+        code: example_code,
     };
     let tokens = lex.tokenize();
 
