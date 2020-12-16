@@ -7,16 +7,15 @@ pub enum State {
      None,
 }
 
-pub struct Lexer {
-     pub code: String,
+pub struct Lexer<'b> {
+     pub code: &'b str,
 }
 
-impl Lexer {
+impl Lexer<'_> {
      pub fn tokenize(&self) -> Vec<Token> {
           let mut tokens: Vec<Token> = vec![];
           let mut state: State = State::None;
           let mut current_token: String = String::new();
-     
           for c in self.code.chars() {
                match state {
                     State::InString => {
@@ -52,7 +51,6 @@ impl Lexer {
                                    "null" => Token::Null,
                                    _ => Token::Unknow,
                               };
-     
                               tokens.push(keyword);
                               current_token.clear();
                               state = State::None;
@@ -61,7 +59,6 @@ impl Lexer {
                     }
                     State::None => (),
                }
-     
                let token: Token = match c {
                     ' ' | '\t' | '\n' | '\r' => continue,
                     '"' => {
@@ -86,10 +83,8 @@ impl Lexer {
                     ',' => Token::Comma,
                     _ => Token::Unknow,
                };
-     
                tokens.push(token);
           }
-     
           tokens
      }
 }
