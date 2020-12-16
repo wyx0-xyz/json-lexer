@@ -20,5 +20,5 @@ Input:
 
 Result:
 ```
-[LBrace, String("abc"), Colon, Number(15), String("foo"), Colon, LBrace, String("def"), Colon, LBracket, Number(12), Boolean(true), Null, RBracket, RBrace, RBrace]
+[LBrace, String("abc"), Colon, Number(15), Comma, String("foo"), Colon, LBrace, String("def"), Colon, LBracket, Number(12), Comma, Boolean(true), Comma, Null, RBracket, RBrace, RBrace]
 ```

@@ -37,7 +37,6 @@ impl Lexer<'_> {
                               tokens.push(Token::Number(current_token.parse().unwrap()));
                               current_token.clear();
                               state = State::None;
-                              continue;
                          }
                     }
                     State::InKeyword => {
@@ -54,7 +53,6 @@ impl Lexer<'_> {
                               tokens.push(keyword);
                               current_token.clear();
                               state = State::None;
-                              continue;
                          }
                     }
                     State::None => (),
