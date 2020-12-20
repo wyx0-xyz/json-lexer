@@ -1,5 +1,5 @@
 [package]
-name = "json-lexer"
+name = "json-parser"
 version = "0.1.0"
 authors = ["wyx0-xyz <wyxo.bs09@gmail.com>"]
 edition = "2018"
